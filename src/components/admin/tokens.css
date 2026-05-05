@@ -1,0 +1,53 @@
+/* Admin CMS panel — matches site aesthetic */
+.admin-cms-root {
+  --admin-cream: #fafaf8;
+  --admin-black: #0a0a0a;
+  --admin-sidebar-active: #1a1a1a;
+  --admin-border: #ebebeb;
+  --admin-danger: #dc2626;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.admin-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--admin-black);
+}
+
+.admin-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.admin-input {
+  width: 100%;
+  border: 1px solid var(--admin-border);
+  padding: 10px 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: var(--admin-black);
+}
+
+@keyframes admin-spin {
+  to { transform: rotate(360deg); }
+}
+
+.admin-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(250, 250, 248, 0.35);
+  border-top-color: #fafaf8;
+  border-radius: 50%;
+  animation: admin-spin 0.7s linear infinite;
+  display: inline-block;
+}
