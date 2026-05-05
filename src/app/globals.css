@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #0a0a0a;
+  --white: #fafaf8;
+  --cream: #f5f2ec;
+  --light-gray: #ebebeb;
+  --mid-gray: #9b9b9b;
+  --dark-gray: #333333;
+  --accent: #c8a882;
+  --nav-height: 80px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--black); color: var(--white); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--black); }
+
+h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-inner { animation: marquee 25s linear infinite; display: flex; white-space: nowrap; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 1px; background: currentColor;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.nav-link:hover::after { width: 100%; }
+
+.img-hover { overflow: hidden; }
+.img-hover img { transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+.img-hover:hover img { transform: scale(1.05); }
+
+.btn-primary {
+  background: #0a0a0a; color: #fafaf8;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 13px 28px; border: 1px solid #0a0a0a; cursor: pointer;
+  transition: all 0.3s ease; display: inline-block; text-decoration: none;
+}
+.btn-primary:hover { background: transparent; color: #0a0a0a; }
+
+.btn-outline {
+  background: transparent; color: #0a0a0a;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 13px 28px; border: 1px solid #0a0a0a; cursor: pointer;
+  transition: all 0.3s ease; display: inline-block; text-decoration: none;
+}
+.btn-outline:hover { background: #0a0a0a; color: #fafaf8; }
+
+.btn-white {
+  background: #fafaf8; color: #0a0a0a;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 13px 28px; border: 1px solid #fafaf8; cursor: pointer;
+  transition: all 0.3s ease; display: inline-block; text-decoration: none;
+}
+.btn-white:hover { background: transparent; color: #fafaf8; }
+
+.label {
+  font-family: 'Montserrat', sans-serif; font-size: 9px;
+  font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid-gray);
+}
+
+.input-field {
+  width: 100%; background: transparent; border: none;
+  border-bottom: 1px solid var(--dark-gray); padding: 12px 0;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--black);
+  outline: none; transition: border-color 0.3s ease;
+}
+.input-field::placeholder { color: var(--mid-gray); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+.input-field:focus { border-bottom-color: var(--black); }
+
+.dropdown-item {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 0;
+  color: var(--black); display: block; transition: color 0.2s ease, padding-left 0.2s ease;
+  text-decoration: none;
+}
+.dropdown-item:hover { color: var(--mid-gray); padding-left: 8px; }
+
+/* View Transitions API — page navigations (see PageTransitionProvider) */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes spin360-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.spin360-shimmer {
+  background: linear-gradient(
+    105deg,
+    #e8e3db 0%,
+    #f5f2ec 42%,
+    #faf8f4 50%,
+    #f5f2ec 58%,
+    #e8e3db 100%
+  );
+  background-size: 220% 100%;
+  animation: spin360-shimmer 1.15s ease-in-out infinite;
+}
+
+/* Home — Work We're Proud Of (case study tiles) */
+.work-proud-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 480px;
+  text-decoration: none;
+  isolation: isolate;
+  background: #0a0a0a;
+  transition:
+    transform 0.55s cubic-bezier(0.19, 1, 0.22, 1),
+    box-shadow 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.work-proud-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.work-proud-card:hover,
+.work-proud-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 64px rgba(10, 10, 10, 0.2), 0 0 0 1px rgba(250, 250, 248, 0.12);
+}
+.work-proud-card .work-proud-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+    filter 0.65s ease;
+  will-change: transform;
+}
+.work-proud-card:hover .work-proud-img,
+.work-proud-card:focus-visible .work-proud-img {
+  transform: scale(1.08);
+  filter: brightness(0.88) contrast(1.06) saturate(1.05);
+}
+.work-proud-card .work-proud-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(ellipse 90% 75% at 50% 45%, transparent 30%, rgba(10, 10, 10, 0.45) 100%);
+  z-index: 1;
+}
+.work-proud-card:hover .work-proud-vignette,
+.work-proud-card:focus-visible .work-proud-vignette {
+  opacity: 1;
+}
+.work-proud-card .work-proud-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.92) 0%,
+    rgba(10, 10, 10, 0.55) 45%,
+    rgba(10, 10, 10, 0.15) 100%
+  );
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.55s cubic-bezier(0.19, 1, 0.22, 1),
+    backdrop-filter 0.5s ease;
+}
+.work-proud-card:hover .work-proud-overlay,
+.work-proud-card:focus-visible .work-proud-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  backdrop-filter: blur(10px);
+}
+.work-proud-card .work-proud-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1), letter-spacing 0.45s ease;
+}
+.work-proud-card:hover .work-proud-cta,
+.work-proud-card:focus-visible .work-proud-cta {
+  transform: translateX(4px);
+  letter-spacing: 0.2em;
+}
+.work-proud-card .work-proud-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 24px;
+  background: linear-gradient(transparent, rgba(10, 10, 10, 0.72));
+  transition:
+    opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.work-proud-card:hover .work-proud-bar,
+.work-proud-card:focus-visible .work-proud-bar {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-proud-card,
+  .work-proud-card .work-proud-img,
+  .work-proud-card .work-proud-overlay,
+  .work-proud-card .work-proud-bar,
+  .work-proud-card .work-proud-vignette,
+  .work-proud-card .work-proud-cta {
+    transition-duration: 0.01ms !important;
+  }
+  .work-proud-card:hover,
+  .work-proud-card:focus-visible {
+    transform: none;
+    box-shadow: none;
+  }
+  .work-proud-card:hover .work-proud-img,
+  .work-proud-card:focus-visible .work-proud-img {
+    transform: none;
+    filter: none;
+  }
+}
