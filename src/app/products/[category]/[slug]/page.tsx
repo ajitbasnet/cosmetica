@@ -137,13 +137,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ catego
 
           {/* Price */}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 24 }}>
-            <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 40, fontWeight: 500 }}>${product.price}</span>
+            <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 40, fontWeight: 500 }}>NPR {product.price}</span>
             {product.originalPrice && (
-              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: '#9b9b9b', textDecoration: 'line-through' }}>${product.originalPrice}</span>
+              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: '#9b9b9b', textDecoration: 'line-through' }}>NPR {product.originalPrice}</span>
             )}
             {product.originalPrice && (
               <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 600, letterSpacing: '0.12em', color: '#22c55e', background: '#f0fdf4', padding: '3px 8px' }}>
-                Save ${product.originalPrice - product.price}
+                Save NPR {product.originalPrice - product.price}
               </span>
             )}
           </div>
@@ -189,7 +189,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ catego
           {/* Trust signals */}
           <div style={{ display: 'flex', gap: 20, padding: '20px 0', borderTop: '1px solid #ebebeb', borderBottom: '1px solid #ebebeb', marginBottom: 28 }}>
             {[
-              { icon: Truck, text: 'Free delivery over $80' },
+              { icon: Truck, text: 'Free delivery over NPR 10,000' },
               { icon: RotateCcw, text: '30-day returns' },
               { icon: Shield, text: '100% authentic' },
             ].map((t, i) => (

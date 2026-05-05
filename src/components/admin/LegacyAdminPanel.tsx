@@ -15,16 +15,16 @@ const allUsers = [
 ]
 
 const campaigns = [
-  { id: '1', name: 'Spring Skincare Launch', client: 'Lumière Paris', status: 'Active', type: 'Influencer Marketing', budget: '$24,000', start: 'Mar 1, 2026', leads: 482 },
-  { id: '2', name: 'Heritage Refresh', client: 'Maison Éclat', status: 'Active', type: 'Organic Social', budget: '$12,000', start: 'Feb 10, 2026', leads: 218 },
-  { id: '3', name: 'Fragrance Season', client: 'Velours Beauty', status: 'Completed', type: 'Paid Social', budget: '$36,000', start: 'Jan 5, 2026', leads: 1204 },
-  { id: '4', name: 'Affiliate Program Q2', client: 'Aurore Skincare', status: 'Planning', type: 'Creator-Led Affiliate', budget: '$18,000', start: 'Apr 20, 2026', leads: 0 },
+  { id: '1', name: 'Spring Skincare Launch', client: 'Lumière Paris', status: 'Active', type: 'Influencer Marketing', budget: 'NPR 32,00,000', start: 'Mar 1, 2026', leads: 482 },
+  { id: '2', name: 'Heritage Refresh', client: 'Maison Éclat', status: 'Active', type: 'Organic Social', budget: 'NPR 16,00,000', start: 'Feb 10, 2026', leads: 218 },
+  { id: '3', name: 'Fragrance Season', client: 'Velours Beauty', status: 'Completed', type: 'Paid Social', budget: 'NPR 48,00,000', start: 'Jan 5, 2026', leads: 1204 },
+  { id: '4', name: 'Affiliate Program Q2', client: 'Aurore Skincare', status: 'Planning', type: 'Creator-Led Affiliate', budget: 'NPR 24,00,000', start: 'Apr 20, 2026', leads: 0 },
 ]
 
 const siteMetrics = [
   { label: 'Total Users', value: '5', change: '+2 this month', up: true },
   { label: 'Active Campaigns', value: '2', change: '+1 this week', up: true },
-  { label: 'Total Revenue', value: '$90K', change: '+18% vs last quarter', up: true },
+  { label: 'Total Revenue', value: 'NPR 1.2 Cr', change: '+18% vs last quarter', up: true },
   { label: 'Avg. Campaign ROI', value: '340%', change: '-2% vs last month', up: false },
 ]
 
@@ -211,7 +211,7 @@ export function LegacyAdminPanel({ tab }: { tab: LegacyTab }) {
                   <option>Creator-Led Affiliate</option>
                   <option>Content Creation</option>
                 </select>
-                <input placeholder="Budget (USD)" className="input-field" />
+                <input placeholder="Budget (NPR)" className="input-field" />
                 <input type="date" className="input-field" />
                 <button type="button" onClick={() => setShowModal(false)} className="btn-primary" style={{ width: '100%', cursor: 'pointer' }}>
                   Create Campaign

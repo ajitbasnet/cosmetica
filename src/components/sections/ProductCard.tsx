@@ -101,11 +101,11 @@ export default function ProductCard({ product }: { product: Product }) {
           {/* Price */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 22, fontWeight: 500, color: '#0a0a0a' }}>
-              ${product.price}
+              NPR {product.price}
             </span>
             {product.originalPrice && (
               <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, color: '#9b9b9b', textDecoration: 'line-through' }}>
-                ${product.originalPrice}
+                NPR {product.originalPrice}
               </span>
             )}
           </div>

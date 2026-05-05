@@ -101,7 +101,7 @@ export function ProductsTable() {
                   <td style={{ padding: 10, fontFamily: 'DM Sans' }}>{p.name}</td>
                   <td style={{ padding: 10, color: '#666' }}>{p.brand}</td>
                   <td style={{ padding: 10, color: '#666' }}>{p.category}</td>
-                  <td style={{ padding: 10 }}>${p.price.toFixed(2)}</td>
+                  <td style={{ padding: 10 }}>NPR {p.price.toFixed(2)}</td>
                   <td style={{ padding: 10, fontSize: 12 }}>{p.badge ?? '—'}</td>
                   <td style={{ padding: 10 }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}>

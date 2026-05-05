@@ -23,7 +23,7 @@ export function SalesTable() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 20, gap: 16, flexWrap: 'wrap' }}>
         <h2 className="admin-section-title" style={{ marginBottom: 0 }}>Sales table</h2>
         <p style={{ fontFamily: 'Montserrat', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#666' }}>
-          Total revenue: ${totalRevenue.toFixed(2)}
+          Total revenue: NPR {totalRevenue.toFixed(2)}
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export function SalesTable() {
                   <td style={{ padding: '12px 14px', fontFamily: 'DM Sans', fontSize: 14 }}>{row.customer}</td>
                   <td style={{ padding: '12px 14px', fontFamily: 'DM Sans', fontSize: 14 }}>{row.product}</td>
                   <td style={{ padding: '12px 14px', fontFamily: 'DM Sans', fontSize: 14 }}>{row.qty}</td>
-                  <td style={{ padding: '12px 14px', fontFamily: 'DM Sans', fontSize: 14 }}>${row.total.toFixed(2)}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: 'DM Sans', fontSize: 14 }}>NPR {row.total.toFixed(2)}</td>
                   <td style={{ padding: '12px 14px' }}>
                     <span
                       style={{
